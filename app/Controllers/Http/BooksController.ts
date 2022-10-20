@@ -60,4 +60,17 @@ export default class BooksController {
             return response.badRequest(error)
         }
     }
+    public async deleteBook({response, params} : HttpContextContract){
+        const {id} = params
+       try {
+        const book = await Book.findOrFail(id)
+        await book.delete()
+        return response.send({message: 'Book deleted'})
+    }
+        catch (error) {
+            return response.badRequest(error)
+        }
+        
+    }
+    }
 }

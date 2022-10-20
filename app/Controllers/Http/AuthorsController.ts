@@ -54,5 +54,18 @@ public async storeAuthor({request, response} : HttpContextContract){
         return response.badRequest(error)
     }
 }
+
+public async deleteAuthor({response, params} : HttpContextContract){
+    const {id} = params
+   try {
+    const author = await Author.findOrFail(id)
+    await author.delete()
+    return response.send({message: 'Author deleted'})
+}
+    catch (error) {
+        return response.badRequest(error)
+    }
+    
+}
 }
 

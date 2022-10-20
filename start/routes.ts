@@ -30,14 +30,16 @@ Route.get('/books', 'BooksController.getBooks').middleware('auth')
 Route.post('/books', 'BooksController.storeBook').middleware('auth')
 Route.get('/books/:id', 'BooksController.getBookById').middleware('auth')
 Route.put('/books/:id', 'BooksController.editBook').middleware('auth')
-
+Route.delete('/books/:id', 'BooksController.deleteBook').middleware('auth')
 
 Route.get('/authors', 'AuthorsController.getAuthors').middleware('auth')
 Route.post('/authors', 'AuthorsController.storeAuthor').middleware('auth')
 Route.get('/authors/:id', 'AuthorsController.getAuthorById').middleware('auth')
 Route.put('/authors/:id', 'AuthorsController.editAuthor').middleware('auth')
+Route.delete('/authors/:id', 'AuthorsController.deleteAuthor').middleware('auth')
 
 Route.get('/publishers', 'PublishersController.getPublishers').middleware('auth')
 Route.post('/publishers', 'PublishersController.storePublisher').middleware('auth')
 Route.get('/publishers/:id', 'PublishersController.getPublisherById').middleware('auth')
 Route.put('/publishers/:id', 'PublishersController.editPublisher').middleware('auth')
+Route.delete('/publishers/:id', 'PublishersController.deletePublisher').middleware('auth')

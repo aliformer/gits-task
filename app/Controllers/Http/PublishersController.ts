@@ -59,4 +59,17 @@ export default class PublishersController {
             return response.badRequest(error)
         }
     }
+    public async deletePublisher({response, params} : HttpContextContract){
+        const {id} = params
+       try {
+        const publisher = await Publisher.findOrFail(id)
+        await publisher.delete()
+        return response.send({message: 'Publisher deleted'})
+    }
+        catch (error) {
+            return response.badRequest(error)
+        }
+        
+    }
+    }
 }
